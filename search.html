@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="//png.pngtree.com/element_our/png/20181229/vector-property-search-icon-png_302719.jpg" type="image/x-icon">
+        <title>Search Property</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="javascript.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+        <script src="jquery-ui.js"></script>
+        <link rel="stylesheet" href="jquery-ui.css">
+        <link href="http://code.jquery.com/ui/1.13.0/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+
+    </head>
+    <body>
+        <section class="container-1">
+            <header>
+                <!--navigation-->
+                <nav>
+                    <!--navigation button-->
+                    <input class="menu-button" type="checkbox" id="menu-button">
+                    <label class="menu-icon" for="menu-button">
+                        <span class="navi-icon"></span>
+                    </label>
+                    <ul class="menu">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="search.html">Search</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!--search section-->
+            <section id=search-body>
+                <h1>Search your Property!</h1>
+                  
+               <!--area--> 
+                <section class="search-filters">
+                    <h3>Postcode Area</h3>
+                    <select name="pscode" id="Postcode">
+                        <option value="MH1">MH1-Maharagama</option>
+                        <option value="NW2">NW2-Nawinna</option>
+                        <option value="WJ3">WJ3-Wijerama</option>
+                        <option value="NG4">NG4-Nugegoda</option>
+                        <option value="Any" selected>Any</option>
+                    </select>
+                </section>
+
+                <!--Property Type-->
+                <section class="search-filters">
+                    <h3>Property Type</h3>
+                    <select name="Type" id="type">
+                        <option value="House">House</option>
+                        <option value="Flat">Flat</option>
+                        <!-- <option value="Slipper">Slippers</option> -->
+                        <option value="Any" selected>Any</option>
+                    </select>
+                </section>
+
+                <!--Date Added-->
+                <section class="search-filters">
+                    <h3>Date Added</h3>
+                    <select name="date" id="date">
+                        <option value="one">One month ago</option>
+                        <option value="two">Two months ago</option>
+                        <option value="three">Three months ago</option>
+                        <option value="four">Four months ago</option>
+                        <option value="Any" selected>Any</option>
+                    </select>
+                </section>
+
+                <!--Bed Rooms-->
+                <section class="search-filters">
+                    <h3>Bed Rooms</h3>
+                    <select name="bdrooms" id="rooms">
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="Any" selected>Any</option>
+                    </select>
+                </section>
+
+                <!--property price range slider-->  
+                <section class="search-filters">
+                    <h3>Price Range</h3>
+                    <input type="text" id="propertyPrice" readonly class="goldSliderText">
+
+                    <section id="price-range"></section> 
+                    
+                    <button id="Search" class="search-pg-btn">Search</button> 
+                </section>
+
+                <section id="search-results-holder1"></section>
+
+                <!--View/Clear favourites button-->
+                <button class="view-favourites-btn"  id="search-pg-btn2">View Favourites</button>
+                <button class="clear-favourites-btn"  id="search-pg-btn3">Clear All Favourites</button>
+                               
+                <section id="search-results-holder2"></section>
+            </section>
+        </section> 
+
+        <!--JSON data-->
+        <script>            
+           var data = {
+            "properties": [
+                {
+                    "id":"prop1",
+                    "pCode": "MH1",
+                    "type":"House",
+                    "bedrooms":3,
+                    "price":175000,
+                    "tenure":"Freehold",
+                    "description":"Attractive three bedroom semi-detached family home situated within 0.5 miles of Petts Wood station with fast trains to London and within easy walking distance of local shops, schools, bus routes and National Trust woodland. The property comprises; two receptions, fitted 18'9 x 10'1 kitchen/breakfast room and conservatory. The property also benefits from having a utility room and cloakroom. To the first floor there are three bedrooms and a family bathroom with separate WC. Additional features include double glazing, gas central heating and a well presented interior...",
+                    "location":"Wattegedara Road, Maharagama MH1",
+                    "picture":"images/property1.0.jpg",
+                    "url":"properties/property1.html",
+                    "added": "one"
+                },
+                {
+                    "id":"prop2",
+                    "pCode": "MH1",
+                    "type":"House",
+                    "bedrooms":3,
+                    "price":160000,
+                    "tenure":"Freehold",
+                    "description":"Presented in excellent decorative order throughout is this two double bedroom, two bathroom, garden flat. <br>The modern fitted kitchen is open plan to the living room which boasts solid wooden floors and includes integrated appliances including a dishwasher & a washing machine. This large open plan benefits from bi folding doors onto a secluded private courtyard garden. Both bedrooms are double sized, and the family bathroom boasts a matching three piece suite a shower attachment over the bath. There is also a separate wet room. There are walnut doors throughout and wiring for Sky TV/aerial points in the living room/kitchen and both bedrooms.<br>This apartment being only five years old, is still under a 10 year building guarantee...",
+                    "location":"Janatha Road, Maharagama MH1",
+                    "picture":"images/property2.00.jpg",
+                    "url":"properties/property2.html",
+                    "added": "two"
+                },
+                {
+                    "id":"prop3",
+                    "type":"Flat",
+                    "pCode": "NG4",
+                    "bedrooms":2,
+                    "price":230000,
+                    "tenure":"Freehold",
+                    "description":"Presented in excellent decorative order throughout is this two double bedroom, two bathroom, garden flat. <br>The modern fitted kitchen is open plan to the living room which boasts solid wooden floors and includes integrated appliances including a dishwasher & a washing machine. This large open plan benefits from bi folding doors onto a secluded private courtyard garden. Both bedrooms are double sized, and the family bathroom boasts a matching three piece suite a shower attachment over the bath. There is also a separate wet room. There are walnut doors throughout and wiring for Sky TV/aerial points in the living room/kitchen and both bedrooms.<br>This apartment being only five years old, is still under a 10 year building guarantee...",
+                    "location":"Gamunu Road, Nugegoda NG4",
+                    "picture":"images/property3.0.jpg",
+                    "url":"properties/property3.html",
+                    "added": "two"        
+                },
+                {
+                    "id":"prop4",
+                    "type":"House",
+                    "pCode": "NW2",
+                    "bedrooms":5,
+                    "price":450000,
+                    "tenure":"Freehold",
+                    "description":"Presented in excellent decorative order throughout is this two double bedroom, two bathroom, garden flat. <br>The modern fitted kitchen is open plan to the living room which boasts solid wooden floors and includes integrated appliances including a dishwasher & a washing machine. This large open plan benefits from bi folding doors onto a secluded private courtyard garden. Both bedrooms are double sized, and the family bathroom boasts a matching three piece suite a shower attachment over the bath. There is also a separate wet room. There are walnut doors throughout and wiring for Sky TV/aerial points in the living room/kitchen and both bedrooms.<br>This apartment being only five years old, is still under a 10 year building guarantee...",
+                    "location":"Vihara Road, Nawinna NW2",
+                    "picture":"images/property4.0.jpg",
+                    "url":"properties/property4.html",
+                    "added": "three"       
+                },
+                {
+                    "id":"prop5",
+                    "type":"Flat",
+                    "pCode": "WJ3",
+                    "bedrooms":2,
+                    "price":350000,
+                    "tenure":"Freehold",
+                    "description":"Presented in excellent decorative order throughout is this two double bedroom, two bathroom, garden flat. <br>The modern fitted kitchen is open plan to the living room which boasts solid wooden floors and includes integrated appliances including a dishwasher & a washing machine. This large open plan benefits from bi folding doors onto a secluded private courtyard garden. Both bedrooms are double sized, and the family bathroom boasts a matching three piece suite a shower attachment over the bath. There is also a separate wet room. There are walnut doors throughout and wiring for Sky TV/aerial points in the living room/kitchen and both bedrooms.<br>This apartment being only five years old, is still under a 10 year building guarantee...",
+                    "location":"Ambuldeniya Road, Wijerama WJ3",
+                    "picture":"images/property5.0.jpg",
+                    "url":"properties/property5.html",
+                    "added": "one"         
+                },
+                {
+                    "id":"prop6",
+                    "type":"House",
+                    "pCode": "NG4",
+                    "bedrooms":2,
+                    "price":228000,
+                    "tenure":"Freehold",
+                    "description":"Presented in excellent decorative order throughout is this two double bedroom, two bathroom, garden flat. <br>The modern fitted kitchen is open plan to the living room which boasts solid wooden floors and includes integrated appliances including a dishwasher & a washing machine. This large open plan benefits from bi folding doors onto a secluded private courtyard garden. Both bedrooms are double sized, and the family bathroom boasts a matching three piece suite a shower attachment over the bath. There is also a separate wet room. There are walnut doors throughout and wiring for Sky TV/aerial points in the living room/kitchen and both bedrooms.<br>This apartment being only five years old, is still under a 10 year building guarantee...",
+                    "location":"Thissa Road, Nugegoda NG4",
+                    "picture":"images/property6.0.jpg",
+                    "url":"properties/property6.html",
+                    "added": "four"       
+                },
+                {
+                    "id":"prop7",
+                    "type":"Flat",
+                    "pCode": "MH1",
+                    "bedrooms":3,
+                    "price":400000,
+                    "tenure":"Freehold",
+                    "description":"Presented in excellent decorative order throughout is this two double bedroom, two bathroom, garden flat. <br>The modern fitted kitchen is open plan to the living room which boasts solid wooden floors and includes integrated appliances including a dishwasher & a washing machine. This large open plan benefits from bi folding doors onto a secluded private courtyard garden. Both bedrooms are double sized, and the family bathroom boasts a matching three piece suite a shower attachment over the bath. There is also a separate wet room. There are walnut doors throughout and wiring for Sky TV/aerial points in the living room/kitchen and both bedrooms.<br>This apartment being only five years old, is still under a 10 year building guarantee...",
+                    "location":"Waliwita Road, Maharagama MH1",
+                    "picture":"images/property7.0.jpg",
+                    "url":"properties/property7.html",
+                    "added": "four"       
+                }
+
+                ]}
+        </script>     
+    </body>
+</html>
+

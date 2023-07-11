@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="//png.pngtree.com/element_our/png/20181229/vector-property-search-icon-png_302719.jpg" type="image/x-icon">
+        <title>Colombo Properties</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="../javascript.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css"/>
+        <script src="../jquery-ui.js"></script>
+        <link rel="stylesheet" href="../jquery-ui.css">
+        <link href="http://code.jquery.com/ui/1.13.0/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+
+        <script>       
+            //function of image enlarging    
+            function enlargeImage(images) {
+                var enlargeImage = document.getElementById("enlargeImage");
+                var imageTitle = document.getElementById("imageTitle");
+                enlargeImage.src = images.src;
+                
+                enlargeImage.parentElement.style.display = "block";
+            }
+            //function of Jquery UI tabs
+            $( function() {
+                $( "#tabs" ).tabs();
+             } );
+        </script>
+    </head>
+    <body>
+        <section class="container-2">
+            <header>
+                <!--navigation-->
+                <nav>
+                    <!--navigation button-->
+                    <input class="menu-button" type="checkbox" id="menu-button">
+                    <label class="menu-icon" for="menu-button">
+                        <span class="navi-icon"></span>
+                    </label>
+                    <ul class="menu">
+                        <li><a href="../home.html">Home</a></li>
+                        <li><a href="../search.html">Search</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <!--Thumbnail images-->
+            <section class="property-page">
+                <h1>Janatha Road, Maharagama MH1</h1>
+                <section class="imagerow">
+                    <section class="imagecolumn">
+                        <img src="../images/property2.0.jpeg" alt="A property" style="width:100%" onclick="enlargeImage(this)"> 
+                    </section>
+                    <section class="imagecolumn">
+                        <img src="../images/property2.1.jpeg" alt="A property" style="width:100%" onclick="enlargeImage(this)">
+                    </section>
+                    <section class="imagecolumn">
+                        <img src="../images/property2.2.jpeg" alt="A property" style="width:100%" onclick="enlargeImage(this)">
+                    </section>
+                    <section class="imagecolumn">
+                        <img src="../images/property2.3.jpeg" alt="A property" style="width:100%" onclick="enlargeImage(this)">
+                    </section>
+                    <section class="imagecolumn">
+                        <img src="../images/property2.4.jpeg" alt="A property" style="width:100%" onclick="enlargeImage(this)">
+                    </section>
+                    <section class="imagecolumn">
+                        <img src="../images/property2.5.jpeg" alt="A property" style="width:100%" onclick="enlargeImage(this)">
+                    </section>
+ 
+                    
+                </section>
+                
+                <!--Enlarging Image-->
+                <section class="imagecontainer">
+                    <img id="enlargeImage" style="width:100%"  src="../images/property2.0.jpeg" alt="A property">
+                    <section id="imageTitle"></section>
+                </section>
+
+                <!--property description-->
+                <section class="detail-container">
+                    <h3>Price : £160000</h3>
+                    <h4>Type : House</h4>
+                    <h4>Tenure : Freehold</h4>
+                    <h4>Bedrooms : 3</h4>
+                    <h4>Bathrooms : 2</h4>
+                </section>
+                
+                <!--Add/Remove favourites buttons-->
+                <p id="prop2">
+                    <button class="add-favourites-btn">Add To Favourites List</button>
+                    <button class="remove-favourites-btn">Remove From Favourites List</button>
+                </p>
+            </section>
+
+            <!--property description, property plan and the location map using jQuery UI tabs-->
+            <section id="tabs">
+                <ul>
+                    <li><a href="#tabs-1">Property Description</a></li>
+                    <li><a href="#tabs-2">House Plan</a></li>
+                    <li><a href="#tabs-3">Map</a></li>
+                </ul>
+                <section id="tabs-1">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                        Est excepturi assumenda laudantium doloribus veritatis officia. 
+                        Voluptates aspernatur ab quia incidunt magnam! In debitis voluptate 
+                        consequatur culpa doloremque ab dolores ipsum</p>
+                </section>
+                <section id="tabs-2">
+                    <img src="../images/plan.png" style="width:100%" alt="Image of property size chart">
+
+                </section>
+                <section id="tabs-3">
+                    <img src="../images/map.png" style="width:100%" alt="Image of property size chart">
+                </section>
+            </section>
+        </section>  
+    </body>
+</html>
